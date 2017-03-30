@@ -7,7 +7,7 @@
     "npm": "3.10.10"
   },
   "scripts": {
-    "prestart": "ng build --prod && ngc && webpack",
+    "postinstall": "ng build --prod && ngc && webpack",
     "start": "node dist/server.js"
   },
   "private": true,
