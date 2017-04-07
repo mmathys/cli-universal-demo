@@ -1,4 +1,5 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
@@ -8,6 +9,11 @@ module.exports = {
     extensions: ['.ts', '.js']
   },
   target: 'node',
+   externals: [nodeExternals({
+     whitelist: [
+       /^@angular\/material/
+     ]
+   })],
   node: {
     __dirname: true
   },

@@ -1,0 +1,16 @@
+@import "../sass/vars";
+
+:host {
+  a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 14px;
+    margin-left: 30px;
+  }
+
+  .content {
+    display: block;
+    padding: 30px;
+    background-color: $color-gainsboro;
+  }
+}
