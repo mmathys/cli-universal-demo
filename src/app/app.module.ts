@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title.component';
@@ -16,7 +16,7 @@ export { AppComponent, TitleComponent, MetaDescriptionComponent };
     MetaDescriptionComponent
   ],
   imports: [
-    MaterialModule.forRoot(),
+    NgbModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'cli-universal-demo' }),
     RouterModule.forRoot([
       { path: '', loadChildren: './home/home.module#HomeModule' },

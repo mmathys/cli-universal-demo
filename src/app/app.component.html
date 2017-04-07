@@ -1,8 +1,19 @@
-<md-toolbar color="primary">
-  <span>Toolbar</span>
-  <a routerLink="">Home</a>
-  <a routerLink="about">About</a>
-</md-toolbar>
+<div class="menu">
+  <button routerLink=""
+          type="button"
+          class="btn btn-secondary"
+          placement="bottom"
+          ngbTooltip="Open Home Page">
+    Home
+  </button>
+  <button routerLink="about"
+          type="button"
+          class="btn btn-secondary"
+          placement="right"
+          ngbTooltip="Open About Page">
+    About
+  </button>
+</div>
 <div class="content">
   <router-outlet></router-outlet>
 </div>

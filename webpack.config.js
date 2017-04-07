@@ -11,7 +11,7 @@ module.exports = {
   target: 'node',
    externals: [nodeExternals({
      whitelist: [
-       /^@angular\/material/
+       /^@ng-bootstrap\/ng-bootstrap/
      ]
    })],
   node: {
