@@ -4,16 +4,12 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { TitleComponent } from './title.component';
-import { MetaDescriptionComponent } from './meta-description.component';
 
-export { AppComponent, TitleComponent, MetaDescriptionComponent };
+export { AppComponent };
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TitleComponent,
-    MetaDescriptionComponent
+    AppComponent
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -24,7 +20,8 @@ export { AppComponent, TitleComponent, MetaDescriptionComponent };
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ])
   ],
+  exports: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent, TitleComponent, MetaDescriptionComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
