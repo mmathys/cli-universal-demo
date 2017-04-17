@@ -6,6 +6,14 @@ import { AppServerModuleNgFactory } from '../dist/ngfactory/src/app/app.server.m
 import * as express from 'express';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import {getInlineCode} from 'preboot';
+
+const prebootInline = getInlineCode({
+  appRoot: 'app-root',
+  eventSelectors: [
+    {selector: 'input', events: ['keydown']}
+  ]
+});
 
 const PORT = process.env.PORT || 4000;
 
@@ -14,6 +22,8 @@ enableProdMode();
 const app = express();
 
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
+
+template = template.replace('</head>', `<script>${prebootInline}</script></head>'`);
 
 app.engine('html', (_, options, callback) => {
   const opts = { document: template, url: options.req.url };

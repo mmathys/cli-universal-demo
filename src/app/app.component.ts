@@ -27,4 +27,8 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  doSomething($event) {
+    console.log($event);
+  }
 }
