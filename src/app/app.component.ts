@@ -10,17 +10,13 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private _router: Router, private _meta: Meta, private _title: Title, /*@Inject('request') private request: any,*/ private injector: Injector, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(private _router: Router, private _meta: Meta, private _title: Title, private injector: Injector, @Inject(PLATFORM_ID) private platformId: Object) {
     console.log('hi, we\'re here!');
-    //console.log(this.request);
     if (isPlatformServer(this.platformId)) {
       console.log(this.injector.get('request'))
     } else {
       console.log('we\'re rendering from the browser, there is no request object.');
     }
-    //console.log(Zone == null);
-    //console.log(Zone.current.get('req'));
-    //console.log(Zone.current);
   }
 
   ngOnInit() {
