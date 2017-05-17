@@ -6,15 +6,12 @@ import { AppServerModuleNgFactory } from '../dist/ngfactory/src/app/app.server.m
 import * as express from 'express';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import createLocaleMiddleware from 'express-locale';
 
 const PORT = process.env.PORT || 4000;
 
 enableProdMode();
 
 const app = express();
-
-app.use(createLocaleMiddleware());
 
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 

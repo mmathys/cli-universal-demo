@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   constructor(private _router: Router, private _meta: Meta, private _title: Title, private injector: Injector, @Inject(PLATFORM_ID) private platformId: Object) {
     console.log('hi, we\'re here!');
     if (isPlatformServer(this.platformId)) {
-      console.log(this.injector.get('request'))
+      let req = this.injector.get('request');
+      console.log("locales from crawlers: " + req.headers["accept-language"]);
     } else {
       console.log('we\'re rendering from the browser, there is no request object.');
     }
