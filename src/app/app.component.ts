@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
+import { Component, OnInit, Inject, Injector, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -9,7 +10,18 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private _router: Router, private _meta: Meta, private _title: Title) { }
+  constructor(private _router: Router, private _meta: Meta, private _title: Title, /*@Inject('request') private request: any,*/ private injector: Injector, @Inject(PLATFORM_ID) private platformId: Object) {
+    console.log('hi, we\'re here!');
+    //console.log(this.request);
+    if (isPlatformServer(this.platformId)) {
+      console.log(this.injector.get('request'))
+    } else {
+      console.log('we\'re rendering from the browser, there is no request object.');
+    }
+    //console.log(Zone == null);
+    //console.log(Zone.current.get('req'));
+    //console.log(Zone.current);
+  }
 
   ngOnInit() {
     this._router.events.subscribe((event) => {

@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-
 import { AppComponent } from './app.component';
 
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
 export { AppComponent };
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,6 @@ export { AppComponent };
     ])
   ],
   exports: [AppComponent],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
